@@ -1,0 +1,17 @@
+# Define shortcut parameters
+$ShortcutPath = [System.Environment]::GetFolderPath("CommonDesktopDirectory") + "\SQL Developer.lnk"
+$TargetFile = "C:\Temp\Software\sqldeveloper\sqldeveloper.exe"
+
+# Instantiate a Shortcut object
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutPath)
+
+# Assign properties to the shortcut
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.WorkingDirectory = [System.IO.Path]::GetDirectoryName($TargetFile)
+$Shortcut.WindowStyle = 1
+$Shortcut.Description = "SQL Developer"
+$Shortcut.IconLocation = "$TargetFile, 0"
+
+# Save the shortcut
+$Shortcut.Save()
