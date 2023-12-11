@@ -1,0 +1,34 @@
+VolumeReadOps and VolumeWriteOps: These are like the number of times you open a book to read a page (read ops) and the number of times you jot down a note (write ops). It's counting how often your storage is accessed.
+
+VolumeReadBytes and VolumeWriteBytes: Imagine you're filling up water balloons. The amount of water (data) you put in each balloon is like the bytes read or written. It measures how much data you're moving in and out of storage.
+
+VolumeTotalReadTime and VolumeTotalWriteTime: This is like timing how long it takes to fill up or empty a swimming pool. It's the total time spent moving data in and out of your storage.
+
+VolumeIdleTime: Think of it as the time your phone is just sitting there, not being used. This metric tells you how long your storage was not active.
+
+VolumeQueueLength: If your storage was a checkout counter, this would be the line of customers (tasks) waiting. A longer line means more waiting and potential delays.
+
+VolumeThroughputPercentage: Consider a highway's speed limit as the maximum speed (IOPS) you can go. This metric shows what percentage of that top speed you're actually using.
+
+BurstBalance: It's like having a nitro boost in a race car. You can use it to go faster occasionally, but it's limited.
+
+VolumeConsumedReadWriteOps: This would be the total number of times you've opened and written in all the books in a library. It's the sum of all the reading and writing activity.
+
+**********************************************************************************************************
+VolumeReadOps and VolumeWriteOps: These metrics indicate the number of read and write operations to your EBS volume. Monitoring these can help you understand the I/O demand on your volume.
+
+VolumeReadBytes and VolumeWriteBytes: These metrics show the number of bytes read from and written to your EBS volume. They're useful for tracking the throughput of your volume.
+
+VolumeTotalReadTime and VolumeTotalWriteTime: These metrics measure the total time spent on read and write operations. They are useful for assessing the efficiency of I/O operations.
+
+VolumeIdleTime: This metric reports the total time during which the volume had no read or write operations. It's a good indicator of the volume's idle periods.
+
+VolumeQueueLength: It measures the number of read and write operation requests waiting to be completed. This metric is crucial for identifying bottlenecks in volume performance.
+
+VolumeThroughputPercentage: Applicable for Provisioned IOPS SSD volumes, this metric shows the percentage of provisioned IOPS that the volume is delivering, which helps in understanding if the provisioned performance is being met.
+
+BurstBalance: Relevant for General Purpose SSD volumes, it indicates the balance of burstable IOPS available.
+
+VolumeConsumedReadWriteOps: This metric, particularly for Provisioned IOPS SSD volumes, shows the total amount of read and write operations consumed. please provide easy english to understand above listed metrics operations
+
+
