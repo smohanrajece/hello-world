@@ -1,0 +1,39 @@
+function Create-AllUsersDesktopShortcut {
+    param (
+        [string]$DetailsFilePath = "C:\temp\details.txt"
+    )
+
+    if (Test-Path $DetailsFilePath) {
+        $shortcutDetails = Get-Content -Path $DetailsFilePath
+        if ($shortcutDetails.Count -ge 2) {
+            $targetPath = $shortcutDetails[0]
+            $shortcutName = $shortcutDetails[1]
+
+            $publicDesktopPath = [System.Environment]::GetFolderPath([System.Environment+SpecialFolder]::CommonDesktopDirectory)
+            $shortcutPath = [System.IO.Path]::Combine($publicDesktopPath, "$shortcutName.lnk")
+
+            $WshShell = New-Object -ComObject WScript.Shell
+            $shortcut = $WshShell.CreateShortcut($shortcutPath)
+            $shortcut.TargetPath = $targetPath
+            $shortcut.Save()
+
+            Write-Host "Desktop shortcut '$shortcutName' created for all users at '$shortcutPath'."
+        } else {
+            Write-Host "Details file should contain at least two lines: target path and shortcut name."
+        }
+    } else {
+        Write-Host "Details file not found at $DetailsFilePath."
+    }
+}
+
+# Usage:
+# Create-AllUsersDesktopShortcut -DetailsFilePath "C:\temp\details.txt"
+
+
+****************************************************************************
+# Set the source and destination paths
+$sourceBookmarksPath = "\\Server\Share\bookmarks.html"
+$destinationBookmarksPath = "$env:LOCALAPPDATA\Google\Chrome\User Data\Default\Bookmarks"
+
+# Copy bookmarks
+Copy-Item -Path $sourceBookmarksPath -Destination $destinationBookmarksPath -Force
