@@ -1,0 +1,25 @@
+sed -i "12s/pattern/&$myvar/" file.txt
+
+******************************************
+
+filename="test.txt"
+if [ -f "$filename" ]; then
+    echo "$filename exists."
+else
+    echo "$filename does not exist."
+fi
+
+
+************************************************
+
+my_var="Hello"
+if [ "$my_var" == "Hello" ]; then
+    echo "The variable is Hello."
+else
+    echo "The variable is not Hello."
+fi
+
+
+****************************************************
+
+cp file.txt file.txt_bk_$(date +"%Y%m%d_%H%M%S")
