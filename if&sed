@@ -23,3 +23,21 @@ fi
 ****************************************************
 
 cp file.txt file.txt_bk_$(date +"%Y%m%d_%H%M%S")
+
+******************************************************************
+#!/bin/bash
+
+# Define the file path
+FILE_PATH="/home/saranya/test.txt"
+
+# Define the search phrase
+SEARCH_PHRASE="Neasden Temple serves the local community as a place of worship"
+
+# Check if the phrase exists in the file using awk
+  if grep -qF "$SEARCH_PHRASE" "$FILE_PATH"; then
+         echo "Phrase already exists in the file."
+  else
+         sed -i "6s/\( Bochasanwasi.*\)Shri/\1$SEARCH_PHRASE Shri/" "$FILE_PATH"
+         echo "Phrase inserted."
+fi
+*************************************************************************************
