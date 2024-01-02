@@ -41,3 +41,7 @@ SEARCH_PHRASE="Neasden Temple serves the local community as a place of worship"
          echo "Phrase inserted."
 fi
 *************************************************************************************
+
+sed -i "6s/\(example\)/\1 $SEARCH_PHRASE/" "$FILE_PATH"
+
+*****************************************************************************************************
