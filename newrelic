@@ -1,0 +1,24 @@
+How to run NRQL in curl
+
+https://github.com/newrelic/docs-website/blob/develop/src/content/docs/apis/nerdgraph/examples/nerdgraph-api-alerts-policies.mdx
+
+
+first:
+https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/advanced-alerts/rest-api-alerts/rest-api-calls-alerts/#conditions-list
+
+
+curl -X GET 'https://api.newrelic.com/v2/alerts_nrql_conditions.json' \
+     -H "X-Api-Key:$API_KEY" -i \
+     -d 'policy_id=$POLICY_ID'
+
+
+curl -X GET 'https://api.newrelic.com/v2/alerts_conditions.json?policy_id=$POLICY_ID' \
+     -H "X-Api-Key:$API_KEY" -i
+
+second:
+
+https://docs.newrelic.com/docs/apis/nerdgraph/get-started/introduction-new-relic-nerdgraph/
+
+https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/alert-notifications/muting-rules-suppress-notifications/#examples
+
+third: (enable NerdGraph API explore then generate curl command)
